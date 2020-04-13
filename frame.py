@@ -7,14 +7,14 @@
 s = 'ATGGCCTTT'
 x = 0
 print('Nested Loop:')
-for i in range (0,3):
+for i in range (0, len(s), 3):
     for j in range (0,3):
         print (x, j, s[x])
         x += 1
 print ('---------') 
 print('Single Loop:')      
 x=0        
-for i in range (0,3):
+for i in range (0, len(s), 3):
     print (x,0,s[x])
     x += 1
     print (x,1, s[x])
