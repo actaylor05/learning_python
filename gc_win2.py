@@ -8,7 +8,7 @@
 
 seq = 'ACGACGCAGGAGGAGAGTTTCAGAGATCACGAATACATCCATATTACCCAGAGAGAG'
 w = 11
-'''
+
 for i in range(0, len(seq) -w+1):
     kmer = seq[i:i+w]
     gc_count = 0
@@ -44,10 +44,6 @@ for i in range(0, len(seq) -w+1):
     gc_count += kmer.count('G')
     gc_count += kmer.count('C')
     print(i, kmer, '%.4f' % (gc_count / w))
-'''
-print(seq)
-seq = seq.replace('G','')
-print(seq)
 
 """
 0 ACGACGCAGGA 0.6364
