@@ -35,6 +35,8 @@ for i in range(0, len(seq) -w+1):
     if kmer[10] == 'C' or kmer[10] == 'G':
         gc_count += 1
     print(i, kmer, '%.4f' % (gc_count / w))
+    
+print('--------')
 
 #Another way to do this with string functions
 
