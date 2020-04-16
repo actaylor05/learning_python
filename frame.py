@@ -21,6 +21,17 @@ for i in range (0, len(s), 3):
     x += 1
     print (x,2, s[x])
     x += 1
+print('-------')
+print('Korfs Version Single Loop')
+for i in range (len(s)):
+    print(i, i % 3, s[i])
+print('---------')
+
+print('Korfs Version Nested Loop')
+for i in range (0, len(s), 3):
+    for f in range (3):
+        c = i + f
+        print (c, f, s[c])
     
 """
 0 0 A
