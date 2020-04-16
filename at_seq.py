@@ -8,28 +8,7 @@ import random
 # On average, the sequence should be 60% AT
 # Calculate the actual AT fraction while generating the sequence
 # Report the length, AT fraction, and sequence
-'''
-length =30
-dna = ''
-for i in range(length):
-	r = random.randint(1, 4) # generate a random number from 1 to 4
-	if   r == 1: dna += 'A'
-	elif r == 2: dna += 'C'
-	elif r == 3: dna += 'G'
-	else:        dna += 'T'
-print(dna)
 
-length =30
-dna = ''
-alph = 'ACGT'
-for i in range(length):
-	r = random.randint(1, 4) # generate a random number from 1 to 4
-	if   r == 1: dna += 'A'
-	elif r == 2: dna += 'C'
-	elif r == 3: dna += 'G'
-	else:        dna += 'T'
-print(dna)
-'''
 length =30
 dna = ''
 at_count = 0
