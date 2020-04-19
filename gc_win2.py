@@ -48,7 +48,7 @@ for i in range(0, len(seq) -w+1):
     print(i, kmer, '%.4f' % (gc_count / w))
     
 #Pros: Some pros to using single loops would be that it may be more intuitive than the nested loops. Single loops may initially be more logical because you would not 
-#necessarily have to consider how many interations you would need to have to complete what you need done. Another pro may be that with single loops, the coding could 
+#necessarily have to consider how many iterations you would need to have to complete what you need done. Another pro may be that with single loops, the coding could 
 #be less complex as you would not have to consider using multiple loops and making sure they are nestled properly and run the proper amount of times. 
 
 #Cons: One con could be that if you were to do a single loop it may end up making the code longer than it needed to be with nested loops. Another con could
