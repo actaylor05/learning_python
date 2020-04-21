@@ -15,7 +15,17 @@ for i in range(0, len(seq) -w+1):
     print(i, kmer, '%.4f' % (gc_count / w))
     gc_count = 0
 
-        
+print('------')
+
+#Korf's Version
+
+for i in range (len(seq) -w +1): #you need -w +1 because -w will make you miss one line
+    sseq = seq[i:i+w]
+    gc = 0
+    for nt in sseq:
+        if nt == 'G' or nt == 'C':
+            gc += 1
+    print(i, sseq, gc/w)
 
     
 

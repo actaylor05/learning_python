@@ -47,6 +47,25 @@ for i in range(0, len(seq) -w+1):
     gc_count += kmer.count('C')
     print(i, kmer, '%.4f' % (gc_count / w))
     
+print('------')
+#Korf's Version
+
+gc = 0
+for i in range (0,w):
+    if seq[i] == 'G' or seq[i] == 'C':
+        gc += 1
+print(0, seq[0:w], gc/w)
+
+for i in range(1, len(seq) -w +1):
+    prev = seq[i-1]
+    nex = seq[i+w-1]
+    if prev == 'G' or prev == 'C':
+        gc -= 1
+    if nex == 'G' or nex == 'C':
+        gc += 1
+    print(i, seq[i:i+w], gc/w)
+
+    
 #Pros: Some pros to using single loops would be that it may be more intuitive than the nested loops. Single loops may initially be more logical because you would not 
 #necessarily have to consider how many iterations you would need to have to complete what you need done. Another pro may be that with single loops, the coding could 
 #be less complex as you would not have to consider using multiple loops and making sure they are nestled properly and run the proper amount of times. 
