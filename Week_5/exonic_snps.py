@@ -53,7 +53,7 @@ print(f'Genes: {len(genes)}')
 print(f'Exons: {exons}')
 print(f'Genes w/ SNPS: {len(snp_genes)}')
 print(f'Gene List: {snp_genes}')
-print(f'Estimated Full Time: {et}')
+print(f'Estimated Full Time: {et:.4f} hours')
 
 """
 SNPs: 8607
