@@ -37,7 +37,7 @@ for i in range(seqs):
             r = random.random()
             if r < 0.5: seq.append('A')
             else:       seq.append('T')
-    print('>seq-%d' % (i))
+    '''print('>seq-%d' % (i))'''
     print(''.join(seq))
 """
 python3 rand_seq.py 3 10 20 0.5 #3 gives you the number of seqs, 10 and 20 give you the number of nucleotides and 0.5 gives you the probability of Gs or Cs
