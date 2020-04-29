@@ -40,7 +40,7 @@ if count % 2 == 0:
     median2 = data[int(count/2)]
     median = (median1 + median2)/2
 else:
-    median = data[int(count/2)-1]
+    median = data[int(count/2)]
     
 #printing the various numbers that were calculated above
 print(f'Count: {count}')
