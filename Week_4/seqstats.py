@@ -16,11 +16,14 @@ for line in fileinput.input():
     data.append(line)
 
 count = int(len(data))
+
+#How to calculate min and max
 data.sort(key = len)
 
 min = len(data[0])
 max = len(data[-1])
 
+#how to calculate compositon of nucleotides and total number of letters
 a_count = 0
 t_count = 0
 c_count = 0
@@ -35,7 +38,8 @@ for i in range(len(data)):
         elif nt == 'C': c_count += 1
         elif nt == 'G': g_count += 1
         total = g_count + c_count + t_count + a_count
-
+        
+#How to calculate N50; N50 is the median length of the sequences
 if count % 2 == 0:
     median1 = len(data[int(count/2)-1])
     median2 = len(data[int(count/2)])
@@ -51,10 +55,6 @@ print(f'Maximum Length: {max}')
 print(f'N50: {median}')
 print(f'Composition: A={a_count/total:.3f} C={c_count/total:.3f} G={g_count/total:.3f} T={t_count/total:.3f}')
 """
-
-#Help here for N50
-
-    
 python3 rand_seq.py 100 100 100000 0.35 | python3 seqstats.py
 Number of sequences: 100
 Number of letters: 4957689
