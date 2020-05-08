@@ -10,9 +10,20 @@ rsum = 0
 fac = 1
 for i in range(1, n+1):
     rsum += i
-    fac *= i
-    
-print(n, rsum, fac) # sum, fac also
+    fact *= i
+print(n, rsum, fact)
+
+print('-------')
+
+#practice using functions, create a function to calculate the factorial
+def fac(n):
+    fact = 1
+    for i in range(1, n+1):
+        fact *= i
+    return fact
+
+for i in range(1, 500):
+    print(i, float(fac(i)))
 
 """
 5 15 120
