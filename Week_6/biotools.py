@@ -182,3 +182,30 @@ def translate(seq):
 		else: pro.append(X)
 	return ''.join(pro)
 
+def entropy(seq, w):
+	for i in range(len(seq) -w +1):
+		win = seq[i: i+ w]
+		a_ct = 0.00001
+		c_ct = 0.00001
+		g_ct = 0.00001
+		t_ct = 0.00001
+		for nt in win:
+			p = []
+			if nt == 'A': a_ct += 1
+			elif nt == 'C': c_ct += 1
+			elif nt == 'G': g_ct += 1
+			elif nt == 'T': t_ct += 1
+			aprob = float(a_ct/w)
+			p.append(aprob)
+			cprob = float(c_ct/w)
+			p.append(cprob)
+			gprob = float(g_ct/w)
+			p.append(gprob)
+			tprob = float(t_ct/w)
+			p.append(tprob)
+			h = 0
+		for i in range(len(p)):
+			h -= p[i] * math.log2(p[i])
+			if h < 0.0001:
+				h = 0
+	return h
