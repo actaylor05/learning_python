@@ -21,7 +21,7 @@ arg = parser.parse_args()
 
 for name, seq in bt.read_fasta(arg.file):
 		print(f'>{name}')
-		print(bt.longest_orf(seq))
+		print(bt.translate(bt.longest_orf(seq)))
 		
 
 
