@@ -103,7 +103,7 @@ def longest_orf(seq):
 			if cds_len > max_len:
 				max_len = cds_len
 				max_seq = seq[atg:atg+cds_len]
-	return translate(max_seq)
+	return max_seq
 	if max_seq == None: return None
 	
 def translate(seq):
@@ -209,3 +209,69 @@ def entropy(seq, w):
 			if h < 0.0001:
 				h = 0
 	return h
+	
+aa = {
+	'AAA' : 'K',	'AAC' : 'N',	'AAG' : 'K',	'AAT' : 'N',
+	'ACA' : 'T',	'ACC' : 'T',	'ACG' : 'T',	'ACT' : 'T',
+	'AGA' : 'R',	'AGC' : 'S',	'AGG' : 'R',	'AGT' : 'S',
+	'ATA' : 'I',	'ATC' : 'I',	'ATG' : 'M',	'ATT' : 'I',
+	'CAA' : 'Q',	'CAC' : 'H',	'CAG' : 'Q',	'CAT' : 'H',
+	'CCA' : 'P',	'CCC' : 'P',	'CCG' : 'P',	'CCT' : 'P',
+	'CGA' : 'R',	'CGC' : 'R',	'CGG' : 'R',	'CGT' : 'R',
+	'CTA' : 'L',	'CTC' : 'L',	'CTG' : 'L',	'CTT' : 'L',
+	'GAA' : 'E',	'GAC' : 'D',	'GAG' : 'E',	'GAT' : 'D',
+	'GCA' : 'A',	'GCC' : 'A',	'GCG' : 'A',	'GCT' : 'A',
+	'GGA' : 'G',	'GGC' : 'G',	'GGG' : 'G',	'GGT' : 'G',
+	'GTA' : 'V',	'GTC' : 'V',	'GTG' : 'V',	'GTT' : 'V',
+	'TAA' : '*',	'TAC' : 'Y',	'TAG' : '*',	'TAT' : 'Y',
+	'TCA' : 'S',	'TCC' : 'S',	'TCG' : 'S',	'TCT' : 'S',
+	'TGA' : '*',	'TGC' : 'C',	'TGG' : 'W',	'TGT' : 'C',
+	'TTA' : 'L',	'TTC' : 'F',	'TTG' : 'L',	'TTT' : 'F',
+}
+
+kdscale = {
+	'I' : 4.5,	'T' : -0.7,	'D' : -3.5,
+	'V' : 4.2,	'S' : -0.8,	'N' : -3.5,
+	'L' : 3.8,	'W' : -0.9,	'K' : -3.9,
+	'F' : 2.8,	'Y' : -1.3,	'R' : -4.5,
+	'C' : 2.5,	'P' : -1.6,'M' : 1.9,
+	'H' : -3.2,	'A' : 1.8,	'E' : -3.5,
+	'G' : -0.4,	'Q' : -3.5,
+	}
+ISscale = {
+	'I' : -0.31,	'T' : 0.14,	'D' : 1.23,
+	'V' : 0.07,	'S' : 0.13,	'N' : 0.42,
+	'L' : -0.56,	'W' : -1.85,	'K' : 0.99,
+	'F' : -1.13,	'Y' : -0.94,	'R' : 0.81,
+	'C' : -0.24,	'P' : 0.45,	'M' : -0.23,
+	'H' : 0.96,	'A' : 0.17,	'E' : 2.02,
+	'G' : 0.01,	'Q' : 0.58,
+	}
+OSscale = { 
+	'I' : -1.12,	'T' : 0.25,	'D' : 3.64,
+	'V' : -0.46,	'S' : 0.46,	'N' : 0.85,
+	'L' : -1.25,	'W' : -2.09,	'K' : 2.80,
+	'F' : -1.71,	'Y' : -0.71,	'R' : 1.81,
+	'C' : -0.02,	'P' : 0.14,	'M' : -0.67,
+	'H' : 2.33,	'A' : 0.50,	'E' : 3.63,
+	'G' : 1.15,	'Q' : 0.77,
+	}
+IS_OSscale = { 
+	'I' : -0.81,	'T' : 0.11,	'D' : 2.41,
+	'V' : -0.53,	'S' : 0.33,	'N' : 0.43,
+	'L' : -0.69,	'W' : -0.24,	'K' : 1.81,
+	'F' : -0.58,	'Y' : 0.23,	'R' : 1.00,
+	'C' : 0.22,	'P' : -0.31,	'M' : -0.44,
+	'H' : 1.37,	'A' : 0.33,	'E' : 1.61,
+	'G' : 1.14,	'Q' : 0.19,
+	}
+
+def cal_hydrophobicity(seq, method, w):
+	if method == 'KD': scale = kdscale
+	elif method == 'IS': scale = ISscale
+	elif method == 'OS': scale = OSscale
+	elif method == 'IS+OS': scale = IS_OSscale
+	score = 0
+	for aa in seq:
+		if aa in scale: score += scale[aa]
+	return score
