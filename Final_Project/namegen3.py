@@ -89,7 +89,7 @@ while True:
 		j += 1
 		if nxt == '*': break
 		word.append(nxt)
-	if len(word) > 3: 
+	if 12 > len(word) > 3: 
 		print(''.join(word))
 
 """
