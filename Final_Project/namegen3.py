@@ -81,16 +81,19 @@ while True:
 	word.append(random.choice(pool)) #Choose first letter
 	word.append(random.choice(pool2[word[0]])) #Choose second letter
 	if word[1] == '*': continue
+	
 	j = 2
 	while True: #Choose the third letter
 		p2 = word[j-2]
 		p1 = word[j-1]
 		nxt = random.choice(pool3[p2][p1])
 		j += 1
-		if nxt == '*': break
+		if nxt == '*': break #* is used to know when to break off a word
 		word.append(nxt)
-	if 12 > len(word) > 3: 
-		print(''.join(word))
+	if 12 > len(word) > 3: #we only want to print words between 3-12 characters (<3 is too short, >12 too long)
+		words = ''.join(word)
+		print(words.capitalize())
+		
 
 """
 
